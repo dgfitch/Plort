@@ -8,7 +8,10 @@ Another primitive testbed for a game concept, this time with intent to make thre
 
 -------
 
--     love: http://love2d.org/
+Libraries:
+
+  - telescope: http://telescope.luaforge.net/
+  - love: http://love2d.org/
 
 -------
 

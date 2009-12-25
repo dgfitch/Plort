@@ -10,13 +10,11 @@ all: clean build run
 clean:
 	$(RM) $(NAME).love
 
-tests:
-	cd test && $(LUA) run.lua
+test:
+	tsc spec/*spec.lua
 
-tests_html:
-	TEST_FORMAT=HTML; cd test && $(LUA) run.lua > ../test_results.html
-	$(BROWSER) test_results.html
-
+test_verbose:
+	tsc -f spec/*spec.lua
 
 build: clean
 	cd love && $(ZIP) ../$(NAME).zip .
