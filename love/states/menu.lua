@@ -1,5 +1,3 @@
-require "objects/Background.lua"
-
 states.Menu = {
   t = 0,
 
