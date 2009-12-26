@@ -1,5 +1,5 @@
 require 'luarocks.require'
-require 'telescope'
+require 'love/lib/telescope/telescope'
 
 
 describe("Graph spec", function()

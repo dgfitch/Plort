@@ -8,6 +8,12 @@ Another primitive testbed for a game concept, this time with intent to make thre
 
 -------
 
+To run the specs, you may need to install telescope via luarocks to get the dependencies, even though a copy is included here.
+
+Then, `make test` should do it -- using different launchers for different platforms
+
+-------
+
 Libraries:
 
   - telescope: http://telescope.luaforge.net/
