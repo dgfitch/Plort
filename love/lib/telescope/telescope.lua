@@ -247,6 +247,7 @@ make_assertion("type",         "'%s' to be a %s",                          funct
 -- @param contexts A optional table in which to collect the resulting contexts
 -- and function.
 function load_contexts(path, contexts)
+  if not path then return {} end
 
   local env = getfenv()
   local current_index = 0
@@ -283,9 +284,14 @@ function load_contexts(path, contexts)
   for _, v in ipairs(context_aliases) do env[v] = context_block end
   for _, v in ipairs(test_aliases) do env[v] = test_block end
 
-  assert(io.input(path))
-  io.close()
-  local func = loadfile(path)
+  local func 
+  if love then
+    func = loadstring(love.filesystem.read(path))
+  else
+    assert(io.input(path))
+    io.close()
+    func = loadfile(path)
+  end
   setfenv(func, env)
   func()
   return context_table
