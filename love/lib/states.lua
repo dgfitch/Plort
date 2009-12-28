@@ -12,5 +12,3 @@ function changeState(i)
 end
 
 requireDir "states/"
-states.Menu:initialize()
-changeState(states.Menu)
