@@ -17,15 +17,15 @@ Then, `make test` should do it -- using different launchers for different platfo
 
 Given the following setting:
 
-Room A, containing a locked door and a gun.
-Room B, containing a potential encounter of medium difficulty, connecting rooms A and C.
-Room C, containing a giant spider that drops a key when killed.
-Room D, on the other side of the locked door.
+  - Room A, containing a locked door and a gun.
+  - Room B, containing a potential encounter of medium difficulty, connecting rooms A and C.
+  - Room C, containing a giant spider that drops a key when killed.
+  - Room D, on the other side of the locked door.
 
 
 #### Hardship, current
 
-The likelihood of a player, in their current state, of satisfying or completing a given PPoint.
+The likelihood of a player, in their current state, satisfying or completing a given PPoint.
 
 #### Accessibility
 
@@ -35,9 +35,9 @@ At the beginning of the example, this would be 0 for Room D and 0.2 for Room C. 
 
 #### Plot
 
-The directed graph of PPoints and the directed graph of LPoints, connected by the various types of arcs. Encompasses all currently-possible "stories" that can be told, and the state of the physical and potential worlds. 
+The directed graph of PPoints and an undirected graph of LPoints, connected by the various types of arcs. Encompasses all currently-possible "stories" that can be told, and the state of the physical and potential worlds. 
 
-I'm not sure if the two graphs of PPoints and LPoints are going to be interconnected; do PPoints need to 
+I'm not sure if the two graphs of PPoints and LPoints are going to be interconnected; _do LPoints need to know about their PPoints?_
 
 #### PPoint
 
@@ -50,7 +50,7 @@ A past or future plot point. Contains:
 
 #### PArc
 
-A dependency between two PPoints. Can be loose or strict. For example, the door opening is strictly dependent on the player having the key. Something that relies on player skill or random chance is a loose dependency. (I'm not sure this distinction is necessary, but at one point it seemed like it...)
+A dependency between two PPoints. Can be loose or strict. For example, the door opening is strictly dependent on the player having the key. Something that relies on player skill or random chance is a loose dependency. _(I'm not sure this distinction is necessary, but at one point it seemed like it...)_
 
 #### LPoint
 
