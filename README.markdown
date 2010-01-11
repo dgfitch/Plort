@@ -42,11 +42,11 @@ I'm not sure if the two graphs of PPoints and LPoints are going to be interconne
 #### PPoint
 
 A past or future plot point. Contains:
-    - a success-checking condition
-    - a success closure [When successful, becomes a "past" point.]
-    - incoming PArcs (dependencies) 
-    - outgoing PArcs (continuations)
-    - outgoing LArcs (the places in game space where a plot point is active)
+  - a success-checking condition
+  - a success closure [When successful, becomes a "past" point.]
+  - incoming PArcs (dependencies) 
+  - outgoing PArcs (continuations)
+  - outgoing LArcs (the places in game space where a plot point is active)
 
 #### PArc
 

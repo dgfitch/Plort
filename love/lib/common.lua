@@ -1,5 +1,6 @@
 
 p = function(string,y)
+  y = y or 100
   love.graphics.printf(string, 0, y, WIDTH, "center")
 end
 

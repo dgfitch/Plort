@@ -16,7 +16,15 @@ test:
 test_verbose:
 	tsc -f spec/*spec.lua
 
+integration:
+	cp love/conf.lua.base love/conf.lua
+	echo TEST=true >> love/conf.lua
+	cd love && $(ZIP) ../$(NAME).zip .
+	mv $(NAME).zip $(NAME).love
+	$(LOVE) $(NAME).love	
+
 build: clean
+	cp love/conf.lua.base love/conf.lua
 	cd love && $(ZIP) ../$(NAME).zip .
 	mv $(NAME).zip $(NAME).love
 
