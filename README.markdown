@@ -74,10 +74,12 @@ A past or future plot point. Contains:
   - a list of LPoints (the place[s] in game space where a plot point is active)
 
 > In the example, there might be the following PPoints:
+>
 > - Spider: 
 >   - Trigger: When spider is dead, drop key
 >   - Trigger: When spider captures player, start "webbed" subplot
 >   - Trigger: When player is behind spider, steal key into player's inventory
+>
 > - Random Encounter in Room B:
 >   - Prerequisites: When spider is alive, player has key, and player is in good health, create a random enemy in Room B
 >   - Trigger: When player is close, enemy calls spider in as backup
