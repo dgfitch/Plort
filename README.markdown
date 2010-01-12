@@ -17,10 +17,10 @@ Then, `make test` should do it -- using different launchers for different platfo
 
 Given the following setting:
 
-  - Room A, containing a locked door and a gun.
-  - Room B, containing a potential encounter of medium difficulty, connecting rooms A and C.
-  - Room C, containing a giant spider that drops a key when killed.
-  - Room D, on the other side of the locked door.
+> - Room A, containing a locked door and a gun.
+> - Room B, containing a potential encounter of medium difficulty, connecting rooms A and C.
+> - Room C, containing a giant spider that drops a key when killed.
+> - Room D, on the other side of the locked door.
 
 
 #### Hardship, current
@@ -31,26 +31,57 @@ The likelihood of a player, in their current state, satisfying or completing a g
 
 The likelihood [0-1] that a player can successfully reach an LPoint, given the current Plot state. Not calculated continuously, only when plot changes are triggered or required.
 
-At the beginning of the example, this would be 0 for Room D and 0.2 for Room C. When the player picks up the gun, it would go up for room C.
+> At the beginning of the example, this would be 0 for Room D and 0.2 for Room C. When the player picks up the gun, it would go up for room C.
 
 #### Plot
 
-The directed graph of PPoints and an undirected graph of LPoints, connected by the various types of arcs. Encompasses all currently-possible "stories" that can be told, and the state of the physical and potential worlds. 
+The game state: a directed graph of PPoints and an undirected graph of LPoints, connected by the various types of arcs. Encompasses all currently-possible "stories" that can be told, and the state of the physical and potential worlds. 
 
 I'm not sure if the two graphs of PPoints and LPoints are going to be interconnected; _do LPoints need to know about their PPoints?_
+
+#### Condition
+
+An object that returns true or false given a game state.
+
+> Is the spider dead?
+
+#### Consequence
+
+An object that modifies game state in a certain way.
+
+> Generate a key in the world where the spider died.
+
+#### Trigger
+
+A pair of a condition and a consequence.
+
+> Given the above condition and consequence examples, the trigger is a thing that generates a key when the spider dies.
+
+#### Preparation
+
+An object which prepares the game state in a certain way.
+
+> EXAMPLE???
+
+#### Prerequisite
+
+A pair of a preparation and a condition.
+
+> EXAMPLE???
+
+#### PrerequisiteList
+
+One or more prerequisites.
+
+> EXAMPLE???
 
 #### PPoint
 
 A past or future plot point. Contains:
-  - a success-checking condition
-  - a success closure [When successful, becomes a "past" point.]
-  - incoming PArcs (dependencies) 
-  - outgoing PArcs (continuations)
-  - outgoing LArcs (the places in game space where a plot point is active)
 
-#### PArc
-
-A dependency between two PPoints. Can be loose or strict. For example, the door opening is strictly dependent on the player having the key. Something that relies on player skill or random chance is a loose dependency. _(I'm not sure this distinction is necessary, but at one point it seemed like it...)_
+  - a table of PrerequisiteLists (incoming things that could cause this plot point to occur)
+  - a list of Triggers (outgoing thing[s] that this plot point could cause)
+  - a list of LPoints (the place[s] in game space where a plot point is active)
 
 #### LPoint
 
@@ -59,6 +90,12 @@ A location in game space, on the order of a room or "area".
 #### LArc
 
 A connection between locations in game space. 
+
+
+#### Pending ideas
+
+  - Conversations?
+  - Actors? Motivations of actors?
 
 
 ## Libraries
