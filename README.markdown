@@ -23,16 +23,6 @@ Given the following setting:
 > - Room D, on the other side of the locked door.
 
 
-#### Hardship, current
-
-The likelihood of a player, in their current state, satisfying or completing a given PPoint.
-
-#### Accessibility
-
-The likelihood [0-1] that a player can successfully reach an LPoint, given the current Plot state. Not calculated continuously, only when plot changes are triggered or required.
-
-> At the beginning of the example, this would be 0 for Room D and 0.2 for Room C. When the player picks up the gun, it would go up for room C.
-
 #### Plot
 
 The game state: a directed graph of PPoints and an undirected graph of LPoints, connected by the various types of arcs. Encompasses all currently-possible "stories" that can be told, and the state of the physical and potential worlds. 
@@ -55,25 +45,25 @@ An object that modifies game state in a certain way.
 
 A pair of a condition and a consequence.
 
-> Given the above condition and consequence examples, the trigger is a thing that generates a key when the spider dies.
+> Given the above condition and consequence examples, the trigger is the sort of thing that generates a key on the ground when the spider dies.
 
 #### Preparation
 
 An object which prepares the game state in a certain way.
 
-> EXAMPLE???
+> See below for examples...
 
 #### Prerequisite
 
 A pair of a preparation and a condition.
 
-> EXAMPLE???
+> ... 
 
 #### PrerequisiteList
 
 One or more prerequisites.
 
-> EXAMPLE???
+> There may be a number of prerequisites for a particular plot to complete. Uhh, example pending.
 
 #### PPoint
 
@@ -83,6 +73,16 @@ A past or future plot point. Contains:
   - a list of Triggers (outgoing thing[s] that this plot point could cause)
   - a list of LPoints (the place[s] in game space where a plot point is active)
 
+> In the example, there might be the following PPoints:
+> - Spider: 
+>   - Trigger: When spider is dead, drop key
+>   - Trigger: When spider captures player, start "webbed" subplot
+>   - Trigger: When player is behind spider, steal key into player's inventory
+> - Random Encounter in Room B:
+>   - Prerequisites: When spider is alive, player has key, and player is in good health, create a random enemy in Room B
+>   - Trigger: When player is close, enemy calls spider in as backup
+>   - Trigger: When enemy dies, spider rushes in to eat corpse
+
 #### LPoint
 
 A location in game space, on the order of a room or "area".
@@ -90,6 +90,16 @@ A location in game space, on the order of a room or "area".
 #### LArc
 
 A connection between locations in game space. 
+
+#### Hardship, current
+
+The likelihood of a player, in their current state, satisfying or completing a given PPoint.
+
+#### Accessibility
+
+The likelihood [0-1] that a player can successfully reach an LPoint, given the current Plot state. Not calculated continuously, only when plot changes are triggered or required.
+
+> At the beginning of the example, this would be 0 for Room D and 0.2 for Room C. When the player picks up the gun, it would go up for room C.
 
 
 #### Pending ideas
