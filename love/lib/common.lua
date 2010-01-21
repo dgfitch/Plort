@@ -19,6 +19,14 @@ findAll = function(object, predicate)
   return t
 end
 
+dumpAll = function(object, name)
+  local dump = ""
+  dump = dump .. (name .. ": " .. tostring(object) .. "\n")
+  for k,v in pairs(object) do
+    dump = dump .. (name .. ": " .. tostring(k) .. ": " .. tostring(v) .. "\n")
+  end
+  return dump
+end
 printAll = function(object, name)
   print(name .. ": " .. tostring(object))
   for k,v in pairs(object) do

@@ -1,10 +1,11 @@
 @echo off
+set LOVE="c:/Program Files (x86)/LOVE/love.exe"
 if "%1"=="run" goto run 
 if "%1"=="test" goto test 
 if "%1"=="integration" goto integration 
 
 copy love\conf.lua.base love\conf.lua
-"c:/Program Files/LOVE/love.exe" --console love
+%LOVE% --console love
 goto end
 
 
@@ -22,13 +23,12 @@ goto end
 :integration
 copy love\conf.lua.base love\conf.lua
 echo TEST=true >> love\conf.lua
-"c:/Program Files/LOVE/love.exe" --console love
+%LOVE% --console love
 goto end
-
 
 :run
 copy love\conf.lua.base love\conf.lua
-"c:/Program Files/LOVE/love.exe" --console love
+%LOVE% love
 goto end
 
 
