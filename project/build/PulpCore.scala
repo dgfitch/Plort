@@ -2,7 +2,8 @@ import sbt._
 
 class PulpCoreProject(info: ProjectInfo) extends DefaultProject(info)
 {
-  override def outputDirectoryName = "build"
+  // currently keeping separate directories for ant and sbt
+  override def outputDirectoryName = "build_sbt"
 
   override def mainScalaSourcePath = "src"
   override def mainResourcesPath = "resources"

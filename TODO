@@ -1,0 +1,3 @@
+- run correctly with ant (duplicate file in zip error)
+- run correctly with local pulpcore lib/install stuff
+- use pulpcore via maven for easier fun?

@@ -1,4 +1,5 @@
 build
+build_sbt
 target/
 lib_managed/
 src_managed/
