@@ -1,2 +1,1 @@
-class Plot {
-}
+case class Plot(statePoints: List[StatePoint]) { }

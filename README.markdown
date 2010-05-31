@@ -21,7 +21,7 @@ Given the following setting:
 
 ### Plot
 
-The game state: a set of StatePoints, their interconnections, and their PlotPoints for determining state changes.
+The game state: a set of interconnected StatePoints.
 
 ### StatePoint
 
