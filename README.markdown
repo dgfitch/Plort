@@ -6,6 +6,8 @@ Another primitive testbed for generative plot.
 
 You will need Ant, Scala, and a recent Pulpcore nightly.
 
+You may also need sbt: http://code.google.com/p/simple-build-tool/
+
 
 ## Glossary
 
@@ -19,16 +21,16 @@ Given the following setting:
 
 ### Plot
 
-The game state: a set of Points, their interconnections, and their PlotPoints for determining state changes.
+The game state: a set of StatePoints, their interconnections, and their PlotPoints for determining state changes.
 
-### Point
+### StatePoint
 
 A node of the gamestate. This can be a room, a door, an open door, a key, etc. An obstacle or an opportunity. Anything the player can see and optionally interact with.
 
 Contains:
 
   - A list of PlotPoints
-  - A list of connections to other Points
+  - A list of connections to other StatePoints
   - Whether the player has "seen" this node yet
 
 Might need to contain:
@@ -68,7 +70,7 @@ The likelihood of a player, in their current state, satisfying or completing a g
 
 #### Accessibility
 
-The likelihood [0-1] that a player can successfully reach a Point, given the current Plot state. Not calculated continuously, only when plot changes are triggered or required.
+The likelihood [0-1] that a player can successfully reach a StatePoint, given the current Plot state. Not calculated continuously, only when plot changes are triggered or required.
 
 > At the beginning of the example, this would be 0 for Room D and 0.2 for Room C. When the player picks up the gun, it would go up for room C.
 

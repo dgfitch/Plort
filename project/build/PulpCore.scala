@@ -5,6 +5,8 @@ class PulpCoreProject(info: ProjectInfo) extends DefaultProject(info)
   // currently keeping separate directories for ant and sbt
   override def outputDirectoryName = "build_sbt"
 
+  override def dependencyPath = "lib_sbt"
+
   override def mainScalaSourcePath = "src"
   override def mainResourcesPath = "resources"
         
@@ -12,7 +14,7 @@ class PulpCoreProject(info: ProjectInfo) extends DefaultProject(info)
   override def testResourcesPath = "test-resources"
 
   val specs = "org.scala-tools.testing" % "specs" % "1.6.2.1"
-  val pulpcore = "pulpcore" % "pulpcore" % "0.11.5" from "http://code.google.com/p/pulpcore/downloads/detail?name=pulpcore-0.11.5.zip&can=2&q="
+  //val pulpcore = "pulpcore" % "pulpcore" % "0.11.5" from "http://code.google.com/p/pulpcore/downloads/detail?name=pulpcore-0.11.5.zip&can=2&q="
 
   lazy val pack200 = task {
     println("Would do pack200 to make a JAR")
@@ -34,7 +36,4 @@ class PulpCoreProject(info: ProjectInfo) extends DefaultProject(info)
     None 
   } dependsOn(res,compile,pack200)
 
-
-  // Not sure yet how to make this work
-  //override def packageAction = task { println("Do some pulpcore stuff!") } dependsOn(compile) describedAs("Creates a war file.")
 }

@@ -7,7 +7,6 @@ import pulpcore.Input
 import PulpCore._
 
 class Plort extends Scene2D {
-  
     override def load = {
         add(new FilledSprite(Colors.BLACK))
 
